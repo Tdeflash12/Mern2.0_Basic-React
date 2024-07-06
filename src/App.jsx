@@ -1,24 +1,34 @@
+import { useEffect,useState } from "react"
 
-import { useState } from "react"
+
 function App() {
-const [count,setCount]=useState(0)
-const [name,setName]= useState("Abhesh")
-const [real,nickName] =useState("jenisha")
+  const[count,setCount]= useState(0)
+  const[sub,setSub]= useState(0)
+  // // // first type
+  //  useEffect(()=>{
+  //    console.log("First use effect")
+  //  },
+  // []
+  //   )
+  //  // Second Type
+  //  useEffect(()=>{
+  //  document.title ="Learning USe Effect" + count
+  //  },
+  // [count])
 
+  // THird type
+  useEffect(()=>{
+    console.log("third use effect was called")
+  })
 
- 
   return (
-    <>
-      <h1>{count}</h1>
-      <p>hello</p>
-      
-      <button onClick={()=>setCount(count+1)}>+</button>
-      <button onClick={()=>setCount(count-1)}>-</button>
-      <h1>{name}</h1>
-      <button onClick={()=>setName("Mandal")}>Change Name</button>
-    <h1>{real}</h1>
-    <button onClick={()=>nickName("Tamang")}>nickName</button>
-      </>
+   <>
+    <h1>{count}</h1>
+    <button onClick={()=>setCount(count+1)}>+</button>
+    <h1>{sub}</h1>
+    <button onClick={()=>setSub(sub+1)}>+</button>
+    </> 
+   
  
   )
 }
