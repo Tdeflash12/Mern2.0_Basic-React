@@ -1,20 +1,25 @@
-import {BrowserRouter,Routes,Route} from 'react-router-dom'
-import Home from "./Home"
-import About from "./About"
-import Contact from "./Contact"
 
+import { useState } from "react"
 function App() {
-  
+const [count,setCount]=useState(0)
+const [name,setName]= useState("Abhesh")
+const [real,nickName] =useState("jenisha")
+
+
+ 
   return (
-    
-    <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<Home />} />
-       <Route path ="/about" element={<About />}/>
-       <Route path ="/contact"element={<Contact/>}/>
-        </Routes>
-        </BrowserRouter>
-    
+    <>
+      <h1>{count}</h1>
+      <p>hello</p>
+      
+      <button onClick={()=>setCount(count+1)}>+</button>
+      <button onClick={()=>setCount(count-1)}>-</button>
+      <h1>{name}</h1>
+      <button onClick={()=>setName("Mandal")}>Change Name</button>
+    <h1>{real}</h1>
+    <button onClick={()=>nickName("Tamang")}>nickName</button>
+      </>
+ 
   )
 }
  
