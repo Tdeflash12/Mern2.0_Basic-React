@@ -1,28 +1,36 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from '../components/Navbar'
-import { Card } from '../components/Card'
+import Card from "../components/Card"
 import axios from 'axios'
 const Home = () => {
-  const[books,setBooks] = useState(0)
+  const[books,setBooks] = useState([])
   const fetchBooks =async()=>{
-  const response= await axios.get("http://localhost:3000/book")
+  const response= await axios.get(`http://localhost:3000/book`)
+ if(response.status ===200)
+ {
+  setBooks(response.data.data)
+ }
  console.log(response)
   }
   useEffect(()=>{
    fetchBooks()  
   },[]  
     )
+    console.log(books)
   return (
   
   <>
   <Navbar />
 <div className='flex flex-wrap justify-evenly m-20'>
-<Card />
-  <Card />
-  <Card />
-  <Card />
-  <Card />
-  <Card />
+{
+  books.length > 0 && books.map((book)=>{
+    return(
+      <Card book={book}/>
+
+    )
+  })
+  
+}
 
 
 </div>
