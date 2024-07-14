@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Navbar from '../components/Navbar'
+import Navbar from "../components/Navbar"
 import Card from "../components/Card"
 import axios from 'axios'
 const Home = () => {
@@ -38,4 +38,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default Home;

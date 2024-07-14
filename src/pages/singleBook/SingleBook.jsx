@@ -1,21 +1,24 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from '../components/Navbar'
-import { useParams } from 'react-router-dom'
+import { Await, useParams } from 'react-router-dom'
 import axios from 'axios'
 
 const SingleBook = () => {
    const {id} =useParams()
    const [book,setBook] =useState()
    const fetchBook = async()=>{
-    const response = await axios.get(`http://localhost:3000/book/${id}`)
+    const response =await axios.get(`http://localhost:3000/book/${id}`)
  if (response.status ===200){
   setBook(response.data.data)
  }
+ 
   }
   useEffect(()=>{
     console.log("hello world")
     fetchBook()
-  },[])
+  },
+  []
+)
 
   return (
     <>
@@ -30,6 +33,14 @@ const SingleBook = () => {
         <p class="text-black-700 text-base">
     {book?.isbrNumber}
         </p>
+        <p class="text-black-700 text-base">
+    {book?.authorName}
+        </p>
+        <p class="text-black-700 text-base">
+    {book?.publishedAt}
+        </p>
+
+
 
       </div>
     
